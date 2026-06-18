@@ -11,7 +11,7 @@ patches:
     patch: |-
       - op: replace
         path: /spec/template/spec/containers/0/image
-        value: us-central1-docker.pkg.dev/my-poc-project-496311/blue-green-demo/yellow-app:v1
+        value: us-central1-docker.pkg.dev/my-poc-project-496311/blue-green-demo/green-app:v2
 
       - op: replace
         path: /spec/replicas
