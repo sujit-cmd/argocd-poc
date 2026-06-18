@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+patches:
+  - target:
+      kind: Deployment
+      name: blue-green-demo
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/image
+        value: us-central1-docker.pkg.dev/my-poc-project-496311/blue-green-demo/yellow-app:v1
+
+      - op: replace
+        path: /spec/replicas
+        value: 3

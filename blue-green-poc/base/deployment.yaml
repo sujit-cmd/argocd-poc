@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-green-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blue-green-demo
+  template:
+    metadata:
+      labels:
+        app: blue-green-demo
+    spec:
+      containers:
+      - name: demo
+        image: us-central1-docker.pkg.dev/my-poc-project-496311/blue-green-demo/blue-app:v1
+        ports:
+        - containerPort: 80
